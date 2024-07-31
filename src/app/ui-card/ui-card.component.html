@@ -1,0 +1,12 @@
+<article class="cardWrapper">
+  <div>
+    <h1>{{ name }}</h1>
+    <p>{{ description }}</p>
+    <ul>
+      @for (tag of tags; track tag.id) {
+      <li><ui-pill class="tag" [name]="tag.name" /></li>
+      }
+    </ul>
+  </div>
+  <div class="status-{{ status }}"></div>
+</article>
