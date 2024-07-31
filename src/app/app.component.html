@@ -1,10 +1,11 @@
 <main class="main">
-  <ui-card></ui-card>
-  <ui-card></ui-card>
-  <ui-card></ui-card>
-  <ui-card></ui-card>
-  <ui-card></ui-card>
-  <ui-card></ui-card>
+  <ul>
+    @for (element of elementArray; track $index) {
+    <li>
+      <ui-card [element]="element"></ui-card>
+    </li>
+    }
+  </ul>
 </main>
 
 <router-outlet />

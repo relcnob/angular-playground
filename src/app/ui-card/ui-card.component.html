@@ -1,12 +1,15 @@
 <article class="cardWrapper">
-  <div>
-    <h1>{{ name }}</h1>
-    <p>{{ description }}</p>
+  <div class="content">
+    <h1>{{ element.name }}</h1>
+    <p>{{ element.description }}</p>
     <ul>
-      @for (tag of tags; track tag.id) {
+      @for (tag of element.tags; track $index) {
       <li><ui-pill class="tag" [name]="tag.name" /></li>
       }
     </ul>
+    <button (click)="updateStatus()">
+      Mark as @if(element.status == "active"){inactive} @else {active}
+    </button>
   </div>
-  <div class="status-{{ status }}"></div>
+  <div class="status-{{ element.status }}"></div>
 </article>
