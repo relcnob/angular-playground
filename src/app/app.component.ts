@@ -1,47 +1,39 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { UiCardComponent } from './ui-card/ui-card.component';
-import { HttpClient } from '@angular/common/http';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { UserComponent } from './app-user/user.component';
+import { ChildComponent } from './app-child/child.component';
+import { NgOptimizedImage } from '@angular/common';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UiCardComponent, RouterLink, RouterLinkActive],
+  imports: [
+    RouterOutlet,
+    UserComponent,
+    ChildComponent,
+    NgOptimizedImage,
+    RouterLink,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'angular-playground';
-  elementArray = [
-    {
-      id: 1,
-      name: 'Something else',
-      status: 'active',
-      description:
-        'Angular is a platform for building mobile and desktop web applications.',
-      tags: [
-        { id: 1, name: 'Tag' },
-        { id: 2, name: 'TypeScript' },
-        { id: 2, name: 'HTML' },
-      ],
-    },
-    {
-      id: 2,
-      name: 'Angular',
-      status: 'inactive',
-      description: 'Some other text with no sense',
-      tags: [
-        { id: 1, name: 'Angular' },
-        { id: 2, name: 'TypeScript' },
-        { id: 2, name: 'CSS' },
-        { id: 2, name: 'JS' },
-      ],
-    },
-    {
-      id: 3,
-      name: 'Another thingy',
-      status: 'inactive',
-      description: 'Some other text with no sense and no meaning',
-      tags: [{ id: 1, name: 'Angular' }],
-    },
-  ];
+  isAppRunning = true;
+  isEditable = true;
+  title = 'SupaApp';
+  version = 2;
+  categories = ['Angular', 'React', 'Vue'];
+  number: number = 0;
+  onButtonClick = () => {
+    this.isEditable = !this.isEditable;
+  };
+  onMouseOver = () => {
+    alert('Mouse is over the username');
+  };
+  addNumber = (num: number) => {
+    this.number += num;
+  };
+
+  imgalt = 'Angular Logo';
+  imgsrc = '/favicon.ico';
 }

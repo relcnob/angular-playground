@@ -1,24 +1,33 @@
 <main class="main">
-  <li>
-    <a
-      routerLink="/test-path"
-      routerLinkActive="active"
-      ariaCurrentWhenActive="page"
-      >TEST PATH</a
-    >
-  </li>
-  <li>
-    <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"
-      >Home</a
-    >
-  </li>
+  @if(isAppRunning) {
+  <p>{{ title }} {{ version }} works for sure</p>
+  } @else {
+  <p>App is not running</p>
+  }
+  <nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="/user">User</a>
+  </nav>
+  <!-- <div [contentEditable]="isEditable"></div>
   <ul>
-    @for (element of elementArray; track $index) {
-    <li>
-      <ui-card [element]="element"></ui-card>
-    </li>
+    @for (category of categories; track $index) {
+    <li>{{ category }}</li>
     }
   </ul>
+  <button (click)="onButtonClick()">Click me</button>
+  <app-child (incrementer)="addNumber($event)" />
+  <p>Count: {{ number }}</p>
+
+  <img ngSrc="/favicon.ico" alt="sth" width="32" height="32" />
+  <img [ngSrc]="imgsrc" [alt]="imgalt" width="32" height="32" />
+
+  @defer {
+  <p>Deferred contents</p>
+  } @placeholder {
+  <p>Placeholder contents</p>
+  } @loading (minimum 2s) {
+  <p>Loading...</p>
+  } -->
 </main>
 
 <router-outlet />
