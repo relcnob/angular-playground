@@ -8,6 +8,8 @@
     <a routerLink="/">Home</a>
     <a routerLink="/user">User</a>
   </nav>
+  <p>{{ display | uppercase }}</p>
+  <p>Date: {{ date | date : "short" }}</p>
   <!-- <div [contentEditable]="isEditable"></div>
   <ul>
     @for (category of categories; track $index) {
